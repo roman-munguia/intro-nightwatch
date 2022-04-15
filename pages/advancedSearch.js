@@ -1,32 +1,43 @@
 module.exports = {
-
+    url: 'https://www.google.com/advanced_search',
+    
     elements: {
         
-        mainQueryInputSelector: '//input[@class="jfk-textinput"]',
-        languageValueSelector: '//li[@value="lang_it"]',
-        languageSelector: '//*[@id="lr_button"]',
-        lastUpdatedSelector: '//*[@id="as_qdr_button"]',
-        lastUpdatedValueSelector: '//*[@id=":82"]',
-        submitBttn: '//input[@class="jfk-button jfk-button-action dUBGpe"]'
-    },
-    
-    
-    /*commands: [{
-        setQueryValue(selector, value);
-        
-        addLanguageSelector: {
-    
-        click:'languageSelector',
-        click:'languageValueSelector'
+        mainQueryInput: {
+            locateStrategy: 'xpath',
+            selector: '//input[@class="jfk-textinput"]'
         },
-   
-        addLastUpdatedSelector: {
-        
-        click:'lastUpdatedSelector',
-        click:'lastUpdatedValueSelector'
+        language: {
+            locateStrategy: 'xpath',
+            selector: '//*[@id="lr_button"]'
+        },
+        lastUpdated: {
+            locateStrategy: 'xpath',
+            selector: '//*[@id="as_qdr_button"]'
+        },
+        submitBttn: {
+            locateStrategy: 'xpath',
+            selector: '//input[@class="jfk-button jfk-button-action dUBGpe"]'
+        }
+    },
+
+    commands: [{
+
+        setQuery(value) {
+            return this
+                .setValue('@mainQueryInput', value);
+
         },
 
-        clickOnSubmit: 'click(submitBttn)'
-    
-    }]*/
-}
+        selectFilter(selector, value) {
+            return this
+                .click(selector)
+                .click(`.goog-menuitem[value="${value}"]`);
+        },
+
+        search() {
+            return this
+                .click('@submitBttn');
+        }
+    }]
+};
