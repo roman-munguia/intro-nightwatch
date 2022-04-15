@@ -1,8 +1,17 @@
 module.exports = {
     elements: {
-        mainQueryResult: '//input[@value="Zelda"]',
-        languageResult: '//div[@jsname="ibnC6b"]/div',
-        lastUpdatedResult: '//div[@jsname="ibnC6b"]/div'
-    }
 
+        mainQueryResult: {
+            locateStrategy: 'xpath',
+            selector: '//input[@value="Zelda"]'
+        },
+        languageResult: {
+            locateStrategy: 'xpath',
+            selector: '//div[@jsname="ibnC6b"]/div'
+        },
+        lastUpdatedResult: {
+            locateStrategy: 'xpath',
+            selector: '//div[@jsname="ibnC6b"]/div'
+        }
+    }
 }
