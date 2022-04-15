@@ -1,5 +1,6 @@
 module.exports = {
     '@tags' : ['google'],
+    '@disable': true,
     'Google advanced search: Zelda' (browser) {
         const mainQuery = 'Zelda';
 

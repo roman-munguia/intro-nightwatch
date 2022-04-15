@@ -51,7 +51,10 @@ module.exports = {
       },
 
       desiredCapabilities: {
-        browserName : 'chrome'
+        browserName : 'chrome',
+        'goog-chromeOptions' : {
+          args: ['--headless']
+        }
       },
 
     },
@@ -92,8 +95,8 @@ module.exports = {
           args: [
             //'--no-sandbox',
             //'--ignore-certificate-errors',
-            //'--allow-insecure-localhost',
-            //'--headless'
+            '--allow-insecure-localhost',
+            '--headless'
           ]
         }
       },
